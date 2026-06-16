@@ -346,7 +346,7 @@ export default function App() {
           >
             <div className="w-[44px] h-[44px] rounded-[10px] bg-[#fafcfa] border border-[#1a5d1a]/20 flex items-center justify-center overflow-hidden shrink-0 group-hover:border-[#1a5d1a]/40 transition-all shadow-inner">
               <img 
-                src="/sco-logo.png" 
+                src="/images/sco-logo.jpg" 
                 alt="SCO Logo" 
                 className="w-full h-full object-contain"
                 id="brand-logo-img"
@@ -623,7 +623,7 @@ export default function App() {
               <div className="flex items-center gap-3">
                 <div className="w-[44px] h-[44px] rounded-[10px] bg-[#fafcfa] border border-[#1a5d1a]/20 flex items-center justify-center overflow-hidden shrink-0 shadow-inner">
                   <img 
-                    src="/sco-logo.png" 
+                    src="/images/sco-logo.jpg" 
                     alt="SCO Logo" 
                     className="w-full h-full object-contain"
                     id="footer-brand-logo-img"
@@ -634,8 +634,8 @@ export default function App() {
                   />
                 </div>
                 <div className="leading-tight">
-                  <span className="text-base font-serif font-bold text-white block tracking-tight">S-CORE Portal Guides</span>
-                  <span className="text-[9px] font-mono tracking-widest text-[#ffd700] font-bold uppercase block">DLSU-D StratComms</span>
+                  <span className="text-base font-serif font-bold text-white block tracking-tight">S-CORE Management System Guide</span>
+                  <span className="text-[9px] font-mono tracking-widest text-[#ffd700] font-bold uppercase block">DLSU-D SCO</span>
                 </div>
               </div>
               <p className="text-xs text-gray-300 leading-relaxed max-w-sm">

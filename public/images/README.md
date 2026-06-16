@@ -2,11 +2,11 @@
 
 Place your screenshot images here in `.png` format. The system automatically loads images from this folder when they exist, and shows a placeholder with the file path when they don't.
 
-## Logo
+## Logo ✅
 
-| File | Path | Used In |
-|------|------|---------|
-| `sco-logo.png` | `/sco-logo.png` | Navbar + Footer (App.tsx) |
+| File | Path | Used In | Status |
+|------|------|---------|--------|
+| `sco-logo.jpg` | `/images/sco-logo.jpg` | Navbar + Footer (App.tsx) + Tab Icon (favicon) | ✅ Uploaded |
 
 ## Getting Started Guide (GettingStarted.tsx)
 
@@ -70,5 +70,5 @@ Place your screenshot images here in `.png` format. The system automatically loa
 
 1. **Format**: PNG files, preferably high-resolution screenshots (1920×1080 or 1440×900)
 2. **Naming**: The filenames above are auto-generated from the caption text — keep them exactly as listed
-3. **Logo**: Place `sco-logo.png` directly in `public/` (one level up from this folder), not in `public/images/`
+3. **Logo**: Already uploaded as `sco-logo.jpg` — it's also set as the browser tab icon (favicon)
 4. **Fallback**: If an image is missing, the page will still display correctly with a styled placeholder showing the expected file path
