@@ -78,14 +78,14 @@ export default function AdminGuide() {
   const [reportFormat, setReportFormat] = useState("CSV Spreadsheet");
   const [reportSuccess, setReportSuccess] = useState(false);
 
-  const activeRequest = requests.find(r => r.id === selectedReqId);
-  const activeUser = users.find(u => u.id === selectedUserId);
+  const activeRequest = requests.find((r: AdminRequest) => r.id === selectedReqId);
+  const activeUser = users.find((u: AdminUser) => u.id === selectedUserId);
 
   // Handlers
   const handleAssignSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!selectedReqId) return;
-    setRequests(prev => prev.map(r => {
+    setRequests((prev: AdminRequest[]) => prev.map((r: AdminRequest) => {
       if (r.id === selectedReqId) {
         return { ...r, assignedUnit: assignedUnitState, status: reqStatusState };
       }
@@ -121,7 +121,7 @@ export default function AdminGuide() {
 
   const handleAuditUserStatus = (newStatus: "Active" | "Inactive" | "Pending Approval") => {
     if (!selectedUserId) return;
-    setUsers(prev => prev.map(u => {
+    setUsers((prev: AdminUser[]) => prev.map((u: AdminUser) => {
       if (u.id === selectedUserId) {
         return { ...u, status: newStatus };
       }
@@ -129,7 +129,7 @@ export default function AdminGuide() {
     }));
   };
 
-  const filteredRequests = requests.filter(r => {
+  const filteredRequests = requests.filter((r: AdminRequest) => {
     if (requestFilter === "all") return true;
     if (requestFilter === "approvals") return r.type === "Approval";
     if (requestFilter === "services") return r.type === "Service";
@@ -195,7 +195,7 @@ export default function AdminGuide() {
             <div className="space-y-1.5">
               <h5 className="text-[10px] font-bold uppercase text-brand-dark">Direct Submissions list</h5>
               <div className="space-y-1 text-xs max-h-48 overflow-y-auto">
-                {filteredRequests.map(r => (
+                {filteredRequests.map((r: AdminRequest) => (
                   <div
                     key={r.id}
                     onClick={() => { setSelectedReqId(r.id); setReqStatusState(r.status); setAssignedUnitState(r.assignedUnit); }}
@@ -203,7 +203,7 @@ export default function AdminGuide() {
                     id={`row-admin-req-${r.id}`}
                   >
                     <div className="flex justify-between items-start mb-0.5">
-                      <span className="max-w-[150px] truncate block text-[11px] text-brand-dark">{r.title}</span>
+                      <span className="max-w-37.5 truncate block text-[11px] text-brand-dark">{r.title}</span>
                       <StatusBadge status={r.status} />
                     </div>
                     <p className="text-[8.5px] text-text-light font-mono">ID: {r.id} | Handled: {r.assignedUnit}</p>
@@ -224,7 +224,7 @@ export default function AdminGuide() {
                   <label className="block text-[8.5px] uppercase font-bold text-brand-dark mb-0.5">Assigned Communications Resource</label>
                   <select
                     value={assignedUnitState}
-                    onChange={(e) => setAssignedUnitState(e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setAssignedUnitState(e.target.value)}
                     className="w-full p-1 bg-white border border-gray-200 text-xs text-text-dark font-sans rounded focus:outline-none"
                     id="select-assignee-unit-sim"
                   >
@@ -239,7 +239,7 @@ export default function AdminGuide() {
                   <label className="block text-[8.5px] uppercase font-bold text-brand-dark mb-0.5">Change Global Workflow Status</label>
                   <select
                     value={reqStatusState}
-                    onChange={(e) => setReqStatusState(e.target.value as any)}
+                    onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setReqStatusState(e.target.value as any)}
                     className="w-full p-1 bg-white border border-gray-200 text-xs text-text-dark font-sans rounded focus:outline-none"
                     id="select-req-status-sim"
                   >
@@ -275,7 +275,7 @@ export default function AdminGuide() {
           <h5 className="text-[10px] font-bold uppercase text-brand-dark">Active S-CORE Registrations Matrix</h5>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-1 max-h-48 overflow-y-auto">
-              {users.map(u => (
+              {users.map((u: AdminUser) => (
                 <div
                   key={u.id}
                   onClick={() => setSelectedUserId(u.id)}
@@ -357,7 +357,7 @@ export default function AdminGuide() {
                 type="text"
                 placeholder="e.g. Mandatory Branding Guidelines"
                 value={annTitle}
-                onChange={(e) => setAnnTitle(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setAnnTitle(e.target.value)}
                 className="w-full p-1.5 bg-white border rounded text-xs text-text-dark font-sans focus:outline-none"
                 id="input-ann-title"
               />
@@ -367,7 +367,7 @@ export default function AdminGuide() {
               <label className="block text-[8.5px] uppercase font-bold text-brand-dark mb-1">Select Target Audience Visibility</label>
               <select
                 value={annTarget}
-                onChange={(e) => setAnnTarget(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setAnnTarget(e.target.value)}
                 className="w-full p-1 bg-white border text-xs text-text-dark font-sans rounded focus:outline-none"
                 id="select-ann-target"
               >
@@ -383,7 +383,7 @@ export default function AdminGuide() {
                 rows={2}
                 placeholder="Submit information payload here..."
                 value={annContent}
-                onChange={(e) => setAnnContent(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setAnnContent(e.target.value)}
                 className="w-full p-1.5 bg-white border rounded text-xs text-text-dark font-sans focus:outline-none"
                 id="textarea-ann-body"
               />
@@ -408,7 +408,7 @@ export default function AdminGuide() {
           <div className="space-y-1.5">
             <h5 className="text-[10px] font-bold uppercase text-brand-dark">Active Broadcast Feed ({announcements.length} Live)</h5>
             <div className="space-y-2 max-h-56 overflow-y-auto">
-              {announcements.map(ann => (
+              {announcements.map((ann: Announcement) => (
                 <div key={ann.id} className="p-2 border rounded-xl bg-white space-y-1 border-brand-accent/20">
                   <div className="flex justify-between items-center bg-brand-light/30 px-1.5 py-0.5 rounded">
                     <span className="font-bold text-[10px] text-brand-dark truncate pr-1">{ann.title}</span>
@@ -436,7 +436,7 @@ export default function AdminGuide() {
               <label className="block text-[8.5px] uppercase font-bold text-brand-dark mb-1 font-sans">Report Target Focus</label>
               <select
                 value={reportScope}
-                onChange={(e) => setReportScope(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setReportScope(e.target.value)}
                 className="w-full p-1 bg-white border text-xs text-text-dark font-sans rounded focus:outline-none"
                 id="select-report-focus"
               >
@@ -450,7 +450,7 @@ export default function AdminGuide() {
               <label className="block text-[8.5px] uppercase font-bold text-brand-dark mb-1 font-sans">Export Data Blueprint</label>
               <select
                 value={reportFormat}
-                onChange={(e) => setReportFormat(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setReportFormat(e.target.value)}
                 className="w-full p-1 bg-white border text-xs text-text-dark font-sans rounded focus:outline-none"
                 id="select-report-format"
               >
@@ -471,7 +471,7 @@ export default function AdminGuide() {
 
           {reportSuccess && (
             <div className="p-3 bg-brand-light text-brand-primary rounded-xl border border-brand-accent/30 flex gap-2 text-[10px] font-semibold items-center animate-fadeIn" id="div-report-success-msg">
-              <CheckCircle size={14} className="text-[#1a5d1a]" />
+              <CheckCircle size={14} className="text-brand-primary" />
               <div>
                 <strong>Generated Successfully!</strong> Compiled {reportScope} into {reportFormat}. System file logs synced.
               </div>
@@ -632,7 +632,7 @@ export default function AdminGuide() {
       {/* --- Section 5: User management --- */}
       <section id="admin-user-management" className="scroll-mt-20 space-y-6">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-[#1a5d1a] text-white flex items-center justify-center font-sans font-bold text-lg shadow-sm">
+          <div className="w-10 h-10 rounded-full bg-brand-primary text-white flex items-center justify-center font-sans font-bold text-lg shadow-sm">
             5
           </div>
           <h2 className="text-xl font-serif font-bold text-brand-primary">
