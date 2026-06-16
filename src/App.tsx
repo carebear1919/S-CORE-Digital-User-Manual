@@ -449,7 +449,7 @@ export default function App() {
           {/* Far Right Call to Action & Controls */}
           <div className="flex items-center gap-1 sm:gap-2 shrink-0">
             <a
-              href="https://s-core-system.dlsu-d.edu.ph"
+              href="https://dlsuds-core.me"
               target="_blank"
               rel="noopener noreferrer"
               className="px-3 sm:px-5 py-1.5 sm:py-2.5 rounded-full text-[10px] sm:text-xs font-bold text-white bg-[#1a5d1a] hover:bg-[#2d7a2d] hover:shadow-brand hover:-translate-y-0.5 active:scale-95 transition-all duration-300 shadow-btn no-print"
