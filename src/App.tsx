@@ -336,7 +336,7 @@ export default function App() {
 
       {/* Sticky Top Navbar */}
       <nav className="sticky top-0 bg-white/95 backdrop-blur-md border-b border-brand-primary/10 z-40 transition-all duration-300 no-print" id="main-navigation-navbar">
-        <div className="max-w-[1300px] mx-auto px-4 lg:px-6 h-[80px] flex items-center justify-between gap-4">
+        <div className="max-w-[1520px] mx-auto px-4 lg:px-6 h-[80px] flex items-center justify-between gap-4">
           
           {/* Brand Left Logo */}
           <div 
@@ -538,7 +538,7 @@ export default function App() {
 
       {/* Main Structural Layout Content */}
       <div 
-        className={`flex-1 ${activePage === "home" ? "w-full" : "max-w-[1300px] w-full mx-auto px-4 lg:px-6 py-8 flex flex-col md:flex-row gap-8"}`}
+        className={`flex-1 ${activePage === "home" ? "w-full" : "max-w-[1520px] w-full mx-auto px-4 lg:px-6 py-8 flex flex-col md:flex-row gap-8"}`}
         id="manual-layout-alignment"
       >
         
@@ -603,7 +603,7 @@ export default function App() {
 
         {/* Content Panel Area */}
         <main 
-          className={`flex-1 ${activePage === "home" ? "w-full max-w-[1100px] mx-auto px-4 lg:px-6 py-8" : "max-w-[860px] p-0 md:p-2 bg-white md:bg-transparent rounded-2xl md:shadow-none"}`}
+          className={`flex-1 ${activePage === "home" ? "w-full max-w-[1360px] mx-auto px-4 lg:px-6 py-8" : "max-w-[1120px] p-0 md:p-2 bg-white md:bg-transparent rounded-2xl md:shadow-none"}`}
           id="main-manual-content-view"
         >
           {activePage === "home" && <Home setActivePage={setActivePage} navigateToAndScroll={navigateToAndScroll} />}
@@ -616,7 +616,7 @@ export default function App() {
 
       {/* Footer Section */}
       <footer className="bg-gradient-to-br from-[#091e12] to-[#040e08] text-white pt-12 pb-10 border-t border-[#1a5d1a]/20 no-print font-sans" id="manual-global-footer">
-        <div className="max-w-[1300px] mx-auto px-4 lg:px-6 space-y-8 text-left">
+        <div className="max-w-[1520px] mx-auto px-4 lg:px-6 space-y-8 text-left">
           
           <div className="flex flex-col md:flex-row justify-between items-start gap-8 border-b border-white/5 pb-8">
             <div className="space-y-4 max-w-md">
