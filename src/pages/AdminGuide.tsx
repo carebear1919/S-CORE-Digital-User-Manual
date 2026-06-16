@@ -399,7 +399,7 @@ export default function AdminGuide() {
 
             {annSuccess && (
               <div className="p-2 bg-brand-light text-brand-primary font-bold text-[9px] text-center border rounded-lg">
-                📢 Announcement issued to S-CORE active routers!
+                Announcement issued to S-CORE active routers!
               </div>
             )}
           </form>

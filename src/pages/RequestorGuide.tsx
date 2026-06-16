@@ -4,7 +4,8 @@ import StatusBadge, { ProjectStatus } from "../components/StatusBadge";
 import { InfoBox, WarningBox } from "../components/AlertBoxes";
 import { 
   BarChart, FileText, Send, CheckSquare, ListFilter, MessageCircle, 
-  HelpCircle, ClipboardList, Calendar, Paperclip, CheckSquare as CheckIcon 
+  HelpCircle, ClipboardList, Calendar, Paperclip, CheckSquare as CheckIcon,
+  Megaphone, Search, Tag, Lightbulb
 } from "lucide-react";
 
 interface MockRequest {
@@ -164,7 +165,8 @@ export default function RequestorGuide() {
       {/* Announcements panel mock */}
       <div className="p-3 bg-brand-light/40 border border-brand-accent/20 rounded-xl mb-4">
         <h5 className="text-[10px] font-bold text-brand-primary uppercase tracking-wide flex items-center gap-1">
-          <span>📢</span> Announcements: Institutional Branding Guide v3 Released!
+          <Megaphone size={14} className="text-brand-primary shrink-0" />
+          Announcements: Institutional Branding Guide v3 Released!
         </h5>
         <p className="text-[9px] text-text-light mt-0.5">Please review official DLSU-D margins before submitting approvals for layout designs.</p>
       </div>
@@ -256,7 +258,7 @@ export default function RequestorGuide() {
               className="text-[9px] text-[#2d7a2d] font-bold hover:underline mt-0.5 block"
               id="btn-toggle-custom-type"
             >
-              {customTypeMode ? "← Standard List" : "✏️ Custom Request Type"}
+              {customTypeMode ? "← Standard List" : "Custom Request Type"}
             </button>
           </div>
 
@@ -308,7 +310,8 @@ export default function RequestorGuide() {
             <span className="text-[9px] text-text-light font-normal text-right">Max size: 40MB</span>
           </label>
           <div className="border border-dashed border-brand-accent/40 rounded-lg p-2 text-center text-[10px] text-text-light bg-brand-light/10">
-            📎 Drag and drop source files or select from local storage
+            <Paperclip size={14} className="inline mr-1 text-text-light" />
+            Drag and drop source files or select from local storage
           </div>
         </div>
 
@@ -323,7 +326,7 @@ export default function RequestorGuide() {
 
       {simulatedSubmitDone && (
         <div className="mt-2 text-center text-[10px] bg-brand-light border border-brand-accent/20 p-2 text-brand-primary font-bold rounded animate-fadeIn" id="div-req-success-alert">
-          🎉 Successfully Added! S-CORE logged your request inside the simulated ledger.
+          Successfully Added! S-CORE logged your request inside the simulated ledger.
         </div>
       )}
     </div>
@@ -508,9 +511,9 @@ export default function RequestorGuide() {
             Locate historical datasets, check status markers, or search archived tasks via the <strong>All Requests</strong> directory:
           </p>
           <div className="flex flex-wrap gap-2 text-xs text-text-light pb-2">
-            <span className="bg-gray-100 px-2.5 py-1 rounded-md border border-gray-200 font-mono">🔍 Target Keyword Search</span>
-            <span className="bg-gray-100 px-2.5 py-1 rounded-md border border-gray-200 font-mono">📅 Dynamic Date range filters</span>
-            <span className="bg-gray-100 px-2.5 py-1 rounded-md border border-gray-200 font-mono">🏷️ Sort by Urgency rank</span>
+            <span className="bg-gray-100 px-2.5 py-1 rounded-md border border-gray-200 font-mono flex items-center gap-1"><Search size={10} /> Target Keyword Search</span>
+            <span className="bg-gray-100 px-2.5 py-1 rounded-md border border-gray-200 font-mono flex items-center gap-1"><Calendar size={10} /> Dynamic Date range filters</span>
+            <span className="bg-gray-100 px-2.5 py-1 rounded-md border border-gray-200 font-mono flex items-center gap-1"><Tag size={10} /> Sort by Urgency rank</span>
           </div>
         </div>
 

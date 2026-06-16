@@ -1,5 +1,5 @@
 import React from "react";
-import { BookOpen, User, Users, Shield, Award, ArrowRight, HelpCircle, Activity } from "lucide-react";
+import { BookOpen, User, Users, Shield, Award, ArrowRight, HelpCircle, Activity, Building2, Settings, Zap } from "lucide-react";
 import { InfoBox } from "../components/AlertBoxes";
 
 interface HomeProps {
@@ -11,7 +11,7 @@ export default function Home({ setActivePage, navigateToAndScroll }: HomeProps) 
   const roles = [
     {
       id: "requestor",
-      icon: "🧑‍🎓",
+      icon: "users",
       title: "Requestor",
       desc: "Students and Faculty/Staff who submit approval and service requests.",
       targetPage: "requestor",
@@ -20,7 +20,7 @@ export default function Home({ setActivePage, navigateToAndScroll }: HomeProps) 
     },
     {
       id: "unit",
-      icon: "🏢",
+      icon: "building",
       title: "Unit Staff",
       desc: "Strategic Communications staff responsible for processing and working on assigned requests.",
       targetPage: "unit",
@@ -29,7 +29,7 @@ export default function Home({ setActivePage, navigateToAndScroll }: HomeProps) 
     },
     {
       id: "admin",
-      icon: "🛡️",
+      icon: "shield",
       title: "Admin",
       desc: "Managers responsible for assigning tasks, tracking institution-wide metrics, and managing users.",
       targetPage: "admin",
@@ -39,7 +39,7 @@ export default function Home({ setActivePage, navigateToAndScroll }: HomeProps) 
     },
     {
       id: "superadmin",
-      icon: "⚙️",
+      icon: "settings",
       title: "Super Admin",
       desc: "Highest-level security authority for global configuration and system auditing.",
       targetPage: "admin",
@@ -128,8 +128,11 @@ export default function Home({ setActivePage, navigateToAndScroll }: HomeProps) 
             >
               <div>
                 <div className="flex justify-between items-start mb-4">
-                  <div className="text-4xl w-14 h-14 rounded-2xl bg-brand-light flex items-center justify-center shadow-inner">
-                    {role.icon}
+                  <div className="w-14 h-14 rounded-2xl bg-brand-light flex items-center justify-center shadow-inner">
+                    {role.icon === "users" && <Users size={28} className="text-brand-primary" />}
+                    {role.icon === "building" && <Building2 size={28} className="text-brand-primary" />}
+                    {role.icon === "shield" && <Shield size={28} className="text-brand-primary" />}
+                    {role.icon === "settings" && <Settings size={28} className="text-brand-primary" />}
                   </div>
                   <span className="text-[10px] font-mono tracking-wider font-semibold text-brand-primary bg-brand-light px-2.5 py-1 rounded-full uppercase border border-brand-accent/10">
                     {role.badge}
@@ -190,12 +193,12 @@ export default function Home({ setActivePage, navigateToAndScroll }: HomeProps) 
           </p>
           <div className="grid grid-cols-2 gap-4">
             <div className="bg-white/5 border border-white/10 rounded-xl p-3">
-              <span className="text-xl">⚡</span>
+              <Zap size={20} className="text-brand-gold" />
               <h4 className="text-xs font-bold text-brand-gold mt-1.5">No-Lag Collaboration</h4>
               <p className="text-[10px] text-brand-light/70 mt-0.5">Instant conversations with SCO and dynamic file locks avoid revisions overlaps.</p>
             </div>
             <div className="bg-white/5 border border-white/10 rounded-xl p-3">
-              <span className="text-xl">🛡️</span>
+              <Shield size={20} className="text-brand-gold" />
               <h4 className="text-xs font-bold text-brand-gold mt-1.5">Strict Role Isolation</h4>
               <p className="text-[10px] text-brand-light/70 mt-0.5">Secure boundaries guarantee students can only access assigned requestor and workspace flows.</p>
             </div>

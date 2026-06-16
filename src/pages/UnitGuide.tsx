@@ -4,7 +4,8 @@ import StatusBadge, { ProjectStatus } from "../components/StatusBadge";
 import { InfoBox, WarningBox } from "../components/AlertBoxes";
 import { 
   Calendar as CalendarIcon, Briefcase, FileCheck, CheckCircle2, 
-  HelpCircle, AlertCircle, RefreshCw, Eye, Upload, Bell, ChevronRight 
+  HelpCircle, AlertCircle, RefreshCw, Eye, Upload, Bell, ChevronRight,
+  AlertTriangle
 } from "lucide-react";
 
 interface UnitTask {
@@ -124,7 +125,8 @@ export default function UnitGuide() {
         {/* Urgent Task Box */}
         <div className="md:col-span-2 border border-red-200 bg-red-50/20 rounded-xl p-2 sm:p-3">
           <h5 className="text-[10px] uppercase font-bold text-red-700 flex items-center gap-1 mb-2">
-            ⚠️ URGENT TASKS (Nearest Deadlines)
+            <AlertTriangle size={12} className="text-red-700 shrink-0" />
+            URGENT TASKS (Nearest Deadlines)
           </h5>
           <div className="space-y-1.5 text-[11px]">
             {urgentTasks.map(ut => (
@@ -150,7 +152,7 @@ export default function UnitGuide() {
         {/* Workload Snapshot */}
         <div className="border border-brand-primary/10 rounded-xl p-3 bg-brand-light/10">
           <h5 className="text-[10px] uppercase font-bold text-brand-dark mb-2">
-            💼 Workload Stats
+            Workload Stats
           </h5>
           <div className="space-y-1 text-xs">
             <div className="flex justify-between">

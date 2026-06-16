@@ -189,13 +189,13 @@ export default function SuperAdminGuide() {
 
           {elevateError && (
             <div className="p-2 bg-red-50 border border-red-200 text-[9px] text-[#dc2626] rounded-md font-semibold font-sans leading-relaxed animate-fadeIn" id="div-elevate-err">
-              ⚠️ {elevateError}
+              {elevateError}
             </div>
           )}
 
           {elevateSuccess && (
             <div className="p-2 bg-brand-light border border-brand-accent/20 text-[9px] text-brand-primary rounded-md font-bold font-sans animate-fadeIn" id="div-elevate-success">
-              ✅ {elevateSuccess}
+              {elevateSuccess}
             </div>
           )}
         </div>
