@@ -7,10 +7,10 @@ export default function GettingStarted() {
     <div className="space-y-10 animate-fadeIn font-sans" id="getting-started-wrapper">
       {/* Intro Header */}
       <div className="border-b border-brand-primary/10 pb-6">
-        <h1 className="text-3xl md:text-4xl font-serif text-brand-dark tracking-tight mb-2">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-serif text-brand-dark tracking-tight mb-2">
           Getting Started & <span className="gold-gradient">Account Access</span>
         </h1>
-        <p className="text-sm text-text-light leading-relaxed">
+        <p className="text-xs sm:text-sm text-text-light leading-relaxed">
           Comprehensive step-by-step documentation on account registration, authentication, and core profile customization within the S-CORE system.
         </p>
       </div>
@@ -18,44 +18,44 @@ export default function GettingStarted() {
       {/* --- SECTION 1 --- */}
       <section id="accessing-account" className="scroll-mt-20 space-y-6">
         <div className="flex items-center gap-3 border-b border-[#1a5d1a]/10 pb-3">
-          <div className="w-10 h-10 rounded-full bg-[#1a5d1a] text-white flex items-center justify-center font-serif font-bold text-lg shadow-sm">
+          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#1a5d1a] text-white flex items-center justify-center font-serif font-bold text-base sm:text-lg shadow-sm">
             1
           </div>
-          <h2 className="text-2xl font-serif font-bold text-[#1a5d1a]">
+          <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#1a5d1a]">
             Accessing your Account
           </h2>
         </div>
 
         {/* 1.a */}
         <div id="account-registration" className="scroll-mt-24 space-y-6">
-          <div className="pl-4 border-l-2 border-[#1a5d1a]/20 space-y-4">
-            <h3 className="text-lg font-bold text-[#1a5d1a] font-serif">
+          <div className="pl-2 sm:pl-4 border-l-2 border-[#1a5d1a]/20 space-y-4">
+            <h3 className="text-base sm:text-lg font-bold text-[#1a5d1a] font-serif">
               a. Account Registration and Creation
             </h3>
 
             {/* i */}
-            <div className="space-y-4 pl-4">
-              <h4 className="text-sm font-bold text-gray-800 flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#ffd700]"></span>
+            <div className="space-y-4 pl-0 sm:pl-4">
+              <h4 className="text-xs sm:text-sm font-bold text-gray-800 flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#ffd700] shrink-0"></span>
                 i. For Students and Faculty/Staff (Requestors)
               </h4>
 
-              <div className="pl-4 space-y-4 text-sm text-text-dark leading-relaxed">
+              <div className="pl-0 sm:pl-4 space-y-4 text-xs sm:text-sm text-text-dark leading-relaxed">
                 <p>
                   • <strong>Method A (Self-Registration):</strong> Users must successfully complete the self-registration process. An account must be approved by an Administrator before the user can successfully log in.
                 </p>
 
-                <div className="bg-gray-50/50 p-4 rounded-xl border border-gray-100 space-y-3">
+                <div className="bg-gray-50/50 p-3 sm:p-4 rounded-xl border border-gray-100 space-y-3">
                   <span className="text-xs font-bold text-[#1a5d1a] uppercase tracking-wider block">
                     Registration Method Differ by Email Domain:
                   </span>
                   
-                  <div className="space-y-3 pl-2">
+                  <div className="space-y-3 pl-0 sm:pl-2">
                     <div className="space-y-1">
                       <p className="text-xs font-bold text-gray-700">
                         o DLSU Email (<code className="text-[#1a5d1a] font-semibold bg-[#e8f5e8] px-1 rounded">@dlsud.edu.ph</code>):
                       </p>
-                      <p className="text-xs text-text-light pl-3 mb-2">
+                      <p className="text-xs text-text-light pl-0 sm:pl-3 mb-2">
                         Simple registration form to be filled and needs admin approval to log in.
                       </p>
                       <ManualImage caption="Internal User Registration" />
@@ -65,8 +65,8 @@ export default function GettingStarted() {
                       <p className="text-xs font-bold text-gray-700">
                         o External Email (Any other Domain):
                       </p>
-                      <p className="text-xs text-text-light pl-3 mb-2">
-                        External users must fill in: <strong>Organization/School</strong>, <strong>Purpose of Request</strong>, <strong>Supervisor&apos;s Name</strong>, <strong>Supervisor&apos;s Email</strong>, and <strong>Additional Notes</strong>. These fields are reviewed by the Admin before approval.
+                      <p className="text-xs text-text-light pl-0 sm:pl-3 mb-2">
+                        External users must fill in: <strong>Organization/School</strong>, <strong>Purpose of Request</strong>, <strong>Supervisor's Name</strong>, <strong>Supervisor's Email</strong>, and <strong>Additional Notes</strong>. These fields are reviewed by the Admin before approval.
                       </p>
                       <ManualImage caption="External User Registration" />
                     </div>
@@ -80,28 +80,28 @@ export default function GettingStarted() {
             </div>
 
             {/* ii */}
-            <div className="space-y-3 pl-4 pt-2">
-              <h4 className="text-sm font-bold text-gray-800 flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#ffd700]"></span>
+            <div className="space-y-3 pl-0 sm:pl-4 pt-2">
+              <h4 className="text-xs sm:text-sm font-bold text-gray-800 flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#ffd700] shrink-0"></span>
                 ii. For Admins
               </h4>
-              <div className="pl-4 text-sm text-text-dark leading-relaxed space-y-2">
+              <div className="pl-0 sm:pl-4 text-xs sm:text-sm text-text-dark leading-relaxed space-y-2">
                 <p>
                   • <strong>If Created by Super Admin:</strong> The Admin will receive a unique username and temporary password via email.
                 </p>
                 <p>
-                  • <strong>If Self-Registered:</strong> To register as an Admin via self-registration, the user registers with any valid email. After approval, the Super Admin opens the Users page, clicks the user, selects Edit, and changes the Role field to &apos;Admin&apos; and assigns a Unit Team if applicable.
+                  • <strong>If Self-Registered:</strong> To register as an Admin via self-registration, the user registers with any valid email. After approval, the Super Admin opens the Users page, clicks the user, selects Edit, and changes the Role field to 'Admin' and assigns a Unit Team if applicable.
                 </p>
               </div>
             </div>
 
             {/* iii */}
-            <div className="space-y-3 pl-4 pt-2">
-              <h4 className="text-sm font-bold text-gray-800 flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#ffd700]"></span>
+            <div className="space-y-3 pl-0 sm:pl-4 pt-2">
+              <h4 className="text-xs sm:text-sm font-bold text-gray-800 flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#ffd700] shrink-0"></span>
                 iii. For Super Admin
               </h4>
-              <div className="pl-4 text-sm text-text-dark leading-relaxed">
+              <div className="pl-0 sm:pl-4 text-xs sm:text-sm text-text-dark leading-relaxed">
                 <p>
                   • The Super Admin account is pre-configured and assigned by the system; it is not created via registration.
                 </p>
@@ -112,11 +112,11 @@ export default function GettingStarted() {
 
         {/* 1.b */}
         <div id="logging-into-system" className="scroll-mt-24 space-y-4 pt-2">
-          <div className="pl-4 border-l-2 border-[#1a5d1a]/20 space-y-3">
-            <h3 className="text-lg font-bold text-[#1a5d1a] font-serif">
+          <div className="pl-2 sm:pl-4 border-l-2 border-[#1a5d1a]/20 space-y-3">
+            <h3 className="text-base sm:text-lg font-bold text-[#1a5d1a] font-serif">
               b. Logging Into the System
             </h3>
-            <div className="pl-4 text-sm text-text-dark leading-relaxed">
+            <div className="pl-0 sm:pl-4 text-xs sm:text-sm text-text-dark leading-relaxed">
               <p className="mb-3">
                 <strong>i.</strong> Each user will log in to their account using their registered Username and password. A successful login will direct you to your respective homepage.
               </p>
@@ -127,11 +127,11 @@ export default function GettingStarted() {
 
         {/* 1.c */}
         <div id="forgot-password" className="scroll-mt-24 space-y-4 pt-2">
-          <div className="pl-4 border-l-2 border-[#1a5d1a]/20 space-y-3">
-            <h3 className="text-lg font-bold text-[#1a5d1a] font-serif">
+          <div className="pl-2 sm:pl-4 border-l-2 border-[#1a5d1a]/20 space-y-3">
+            <h3 className="text-base sm:text-lg font-bold text-[#1a5d1a] font-serif">
               c. Forgot Password
             </h3>
-            <div className="pl-4 text-sm text-text-dark leading-relaxed space-y-2.5">
+            <div className="pl-0 sm:pl-4 text-xs sm:text-sm text-text-dark leading-relaxed space-y-2.5">
               <p>
                 <strong>i.</strong> If you forget your password, click the &ldquo;Forgot Password?&rdquo; link on the login page.
               </p>
@@ -153,15 +153,15 @@ export default function GettingStarted() {
       {/* --- SECTION 2 --- */}
       <section id="profile-management" className="scroll-mt-20 space-y-6 pt-6 border-t border-[#1a5d1a]/10">
         <div className="flex items-center gap-3 border-b border-[#1a5d1a]/10 pb-3">
-          <div className="w-10 h-10 rounded-full bg-[#1a5d1a] text-white flex items-center justify-center font-serif font-bold text-lg shadow-sm">
+          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#1a5d1a] text-white flex items-center justify-center font-serif font-bold text-base sm:text-lg shadow-sm">
             2
           </div>
-          <h2 className="text-2xl font-serif font-bold text-[#1a5d1a]">
+          <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#1a5d1a]">
             Features for All Users: Profile Management
           </h2>
         </div>
 
-        <div className="pl-4 border-l-2 border-[#1a5d1a]/20 space-y-8 text-sm text-text-dark leading-relaxed">
+        <div className="pl-2 sm:pl-4 border-l-2 border-[#1a5d1a]/20 space-y-8 text-xs sm:text-sm text-text-dark leading-relaxed">
           {/* a */}
           <div className="space-y-2">
             <p>

@@ -82,9 +82,9 @@ export default function SuperAdminGuide() {
         </span>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
         {/* Left: Invitation generator */}
-        <div className="bg-brand-light/20 border border-brand-accent/25 rounded-xl p-3 space-y-3">
+        <div className="bg-brand-light/20 border border-brand-accent/25 rounded-xl p-2.5 sm:p-3 space-y-3">
           <h5 className="text-[10px] font-bold uppercase text-brand-primary flex gap-1 items-center">
             <UserPlus size={12} />
             Generate Sign-up Invitation
@@ -134,7 +134,7 @@ export default function SuperAdminGuide() {
         </div>
 
         {/* Right: User Role elevation */}
-        <div className="bg-brand-light/20 border border-brand-accent/25 rounded-xl p-3 space-y-3">
+        <div className="bg-brand-light/20 border border-brand-accent/25 rounded-xl p-2.5 sm:p-3 space-y-3">
           <h5 className="text-[10px] font-bold uppercase text-[#9e2a2b] flex gap-1 items-center">
             <Key size={12} />
             Role elevation matrix

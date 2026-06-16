@@ -122,7 +122,7 @@ export default function UnitGuide() {
       {/* Highlights Rows */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
         {/* Urgent Task Box */}
-        <div className="md:col-span-2 border border-red-200 bg-red-50/20 rounded-xl p-3">
+        <div className="md:col-span-2 border border-red-200 bg-red-50/20 rounded-xl p-2 sm:p-3">
           <h5 className="text-[10px] uppercase font-bold text-red-700 flex items-center gap-1 mb-2">
             ⚠️ URGENT TASKS (Nearest Deadlines)
           </h5>
@@ -394,7 +394,8 @@ export default function UnitGuide() {
             The interface separates workloads into three standard streams using local toggles. This prevents visual clutter:
           </p>
 
-          <table className="min-w-full text-xs text-text-dark font-sans border-collapse">
+          <div className="overflow-x-auto -mx-2 sm:mx-0">
+          <table className="min-w-[500px] sm:min-w-full text-xs text-text-dark font-sans border-collapse">
             <thead>
               <tr className="bg-brand-light text-brand-dark uppercase tracking-wide">
                 <th className="p-3 text-left border border-brand-accent/20">Task Filter View</th>
@@ -420,6 +421,7 @@ export default function UnitGuide() {
               </tr>
             </tbody>
           </table>
+          </div>
         </div>
 
         <ManualImage caption="3 Action Cards" mockUI={mockUnitWorkspace} />

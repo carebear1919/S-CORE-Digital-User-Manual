@@ -356,7 +356,7 @@ export default function App() {
                 referrerPolicy="no-referrer"
               />
             </div>
-            <div className="flex flex-col select-none">
+            <div className="flex flex-col select-none max-sm:hidden">
               <span className="text-base md:text-lg font-serif font-bold text-[#1a5d1a] tracking-tight transition-colors leading-tight group-hover:text-[#2d7a2d] whitespace-nowrap">
                 Strategic Communications Office
               </span>
@@ -447,12 +447,12 @@ export default function App() {
           </div>
 
           {/* Far Right Call to Action & Controls */}
-          <div className="flex items-center gap-2 shrink-0">
+          <div className="flex items-center gap-1 sm:gap-2 shrink-0">
             <a
               href="https://s-core-system.dlsu-d.edu.ph"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 rounded-full text-xs font-bold text-white bg-[#1a5d1a] hover:bg-[#2d7a2d] hover:shadow-brand hover:-translate-y-0.5 active:scale-95 transition-all duration-300 shadow-btn no-print"
+              className="px-3 sm:px-5 py-1.5 sm:py-2.5 rounded-full text-[10px] sm:text-xs font-bold text-white bg-[#1a5d1a] hover:bg-[#2d7a2d] hover:shadow-brand hover:-translate-y-0.5 active:scale-95 transition-all duration-300 shadow-btn no-print"
               id="cta-access-score"
             >
               Access S-CORE
@@ -510,7 +510,7 @@ export default function App() {
               </div>
             )}
 
-            <div className="grid grid-cols-2 gap-2 pt-1">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
               {[
                 { id: "home", label: "Home" },
                 { id: "getting-started", label: "Getting Started" },

@@ -482,7 +482,7 @@ export default function AdminGuide() {
 
       {/* --- Tab Content 5: Analytics Charts --- */}
       {activeAdminTab === "analytics" && (
-        <div className="grid grid-cols-2 gap-3 text-center text-xs animate-fadeIn" id="admin-simp-analytics-tab">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-center text-xs animate-fadeIn" id="admin-simp-analytics-tab">
           <div className="p-3 border border-brand-accent/15 rounded-xl bg-white">
             <h6 className="font-bold text-brand-primary uppercase text-[9px] tracking-wider mb-2">Request distribution by Status</h6>
             <div className="flex items-end justify-center gap-1.5 h-24 pt-4 border-b border-gray-155">

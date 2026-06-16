@@ -145,7 +145,7 @@ export default function RequestorGuide() {
       </div>
 
       {/* Stats Summary Panel */}
-      <div className="grid grid-cols-6 gap-2 mb-4">
+      <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 mb-4">
         {[
           { label: "Pending", val: "1", color: "border-[#f59e0b]/30 bg-[#f59e0b]/5 text-[#f59e0b]" },
           { label: "In Prog.", val: "1", color: "border-[#3b82f6]/30 bg-[#3b82f6]/5 text-[#3b82f6]" },
@@ -154,9 +154,9 @@ export default function RequestorGuide() {
           { label: "Complete", val: "12", color: "border-[#0d9488]/30 bg-[#0d9488]/5 text-[#0d9488]" },
           { label: "Rejected", val: "0", color: "border-[#dc2626]/30 bg-[#dc2626]/5 text-gray-400" },
         ].map((item, id) => (
-          <div key={id} className={`p-1.5 border text-center rounded-lg ${item.color}`}>
-            <div className="text-sm font-bold leading-none">{item.val}</div>
-            <div className="text-[8px] mt-0.5 font-medium truncate uppercase">{item.label}</div>
+          <div key={id} className={`p-1 sm:p-1.5 border text-center rounded-lg ${item.color}`}>
+            <div className="text-xs sm:text-sm font-bold leading-none">{item.val}</div>
+            <div className="text-[7px] sm:text-[8px] mt-0.5 font-medium truncate uppercase">{item.label}</div>
           </div>
         ))}
       </div>
@@ -181,7 +181,7 @@ export default function RequestorGuide() {
               id={`mock-req-row-${req.id}`}
             >
               <div>
-                <span className="font-bold text-brand-dark block truncate max-w-[240px]">{req.title}</span>
+                <span className="font-bold text-brand-dark block truncate max-w-[120px] sm:max-w-[240px]">{req.title}</span>
                 <span className="text-[9px] text-text-light font-mono block">{req.type} | Due: {req.deadline}</span>
               </div>
               <StatusBadge status={req.status} />
