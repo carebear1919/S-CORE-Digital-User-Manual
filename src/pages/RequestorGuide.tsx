@@ -599,7 +599,7 @@ export default function RequestorGuide() {
           )}
         </div>
 
-        <ManualImage caption="Conversation Tab" mockUI={mockDashboardUI} />
+        <ManualImage caption="Active Chat Revision" mockUI={mockDashboardUI} />
       </section>
     </div>
   );

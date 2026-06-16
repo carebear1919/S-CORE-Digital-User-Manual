@@ -242,7 +242,7 @@ export default function App() {
       observedElements.forEach(el => observer.unobserve(el));
       observer.disconnect();
     };
-  }, [activePage, activeSection]);
+  }, [activePage]);
 
   // Back to top execution
   const handleScrollToTop = () => {

@@ -7,7 +7,7 @@ interface ManualImageProps {
 }
 
 export default function ManualImage({ caption }: ManualImageProps) {
-  const [imgError, setImgError] = useState(true); // Default to placeholder first as requested
+  const [imgError, setImgError] = useState(false);
   const slug = caption.toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/(^-|-$)/g, "");
@@ -32,12 +32,12 @@ export default function ManualImage({ caption }: ManualImageProps) {
         </div>
 
         {/* Content Image Area */}
-        <div className="bg-gray-50 p-1 md:p-2 min-h-[300px] flex items-center justify-center">
+        <div className="bg-gray-50 p-1 md:p-2 max-h-[550px] overflow-y-auto flex flex-col items-center justify-start scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
           {!imgError ? (
             <img 
               src={imagePath} 
               alt={caption} 
-              className="w-full h-auto object-contain max-h-[500px] rounded-lg border border-gray-100"
+              className="w-full h-auto object-contain rounded-lg border border-gray-100"
               onError={() => setImgError(true)}
               referrerPolicy="no-referrer"
             />
