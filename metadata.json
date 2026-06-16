@@ -1,0 +1,6 @@
+{
+  "name": "S-CORE System User Manual",
+  "description": "Digital user manual and guide for De La Salle University-Dasmariñas’ S-CORE System request management platform.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
