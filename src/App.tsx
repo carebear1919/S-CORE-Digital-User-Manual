@@ -718,7 +718,7 @@ export default function App() {
                 Privacy Policy
               </button>
               <a 
-                href="https://s-core-system.dlsu-d.edu.ph" 
+                href="https://dlsuds-core.me" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="hover:text-[#ffd700] transition-colors"
@@ -727,6 +727,7 @@ export default function App() {
               </a>
             </div>
           </div>
+          
           
         </div>
       </footer>

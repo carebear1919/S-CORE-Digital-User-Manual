@@ -91,7 +91,7 @@ export default function Home({ setActivePage, navigateToAndScroll }: HomeProps) 
             <ArrowRight size={16} />
           </button>
           <a
-            href="https://s-core-system.dlsu-d.edu.ph"
+            href="https://dlsuds-core.me"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-sm font-semibold text-brand-primary bg-brand-light hover:bg-brand-primary hover:text-white hover:shadow-md transition-all duration-300 border border-brand-accent/20"
