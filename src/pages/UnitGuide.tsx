@@ -32,7 +32,7 @@ export default function UnitGuide() {
       title: "Science Week Poster Draft",
       type: "Approval",
       deadline: "2026-06-18",
-      status: "Pending",
+      status: "Queued",
       urgency: "High",
       assignee: "Me"
     },
@@ -346,33 +346,35 @@ export default function UnitGuide() {
 
         <div className="prose text-sm text-text-dark space-y-3">
           <p>
-            Your specialized workspace houses multiple statistics to help you schedule tasks based on deadline calendars, workload metrics, and organizational requests:
+            Welcome to your S-CORE Unit! You are the <strong>creative engine</strong> of the Strategic Communications Office. Your primary role is to execute the Approval and Service tasks assigned to your unit (e.g., Graphics, Multimedia) by an Admin (Director or Secretary).
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="border border-brand-primary/10 bg-white p-4 rounded-xl">
-              <h4 className="text-xs font-bold text-brand-primary uppercase mb-1">Calendar & Deadlines</h4>
-              <p className="text-xs text-text-light leading-relaxed">
-                Renders approaching completion frames dynamically. Color-coded alarms notify you of critical dates approaching within 48 business hours.
-              </p>
+          <h4 className="text-xs font-bold text-brand-primary uppercase tracking-wider">Core Responsibilities</h4>
+          <ul className="text-xs text-text-light space-y-1 list-disc pl-5">
+            <li>Review and process all tasks assigned to your unit</li>
+            <li>Provide clear, professional communication to requestors via the Conversation feature</li>
+            <li>Update task statuses (e.g., &quot;In Progress,&quot; &quot;Completed&quot;) accurately</li>
+            <li>Submit links to all final deliverables in the S-CORE system</li>
+            <li>Meet all processing deadlines and quality standards</li>
+          </ul>
+
+          <div className="bg-brand-light/30 border-l-4 border-brand-primary rounded-r-xl p-3 text-xs">
+            <strong className="text-brand-dark">Teamwork Note:</strong>
+            <span className="text-text-light"> All members of your unit (e.g., all &quot;Graphics&quot; members) can see and act on tasks assigned to your unit. Always communicate with your team in the Conversation tab to coordinate who is working on what.</span>
+          </div>
+
+          <h4 className="text-xs font-bold text-brand-primary uppercase tracking-wider">The Two Task Types (Your Actions)</h4>
+          <p className="text-xs text-text-light">
+            Your work involves two distinct types of tasks, each with different workflows and action buttons.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div className="border border-purple-200 bg-purple-50/30 rounded-xl p-3">
+              <h5 className="text-xs font-bold text-purple-700">Type 1: Approval Requests</h5>
+              <p className="text-xs text-text-light mt-1"><strong>You Review &rarr; They Already Created It.</strong> The requestor created their own content and provided a link. You check if it meets standards &mdash; you are NOT creating, only reviewing.</p>
             </div>
-            <div className="border border-brand-primary/10 bg-white p-4 rounded-xl">
-              <h4 className="text-xs font-bold text-brand-primary uppercase mb-1">Urgent Task Queue</h4>
-              <p className="text-xs text-text-light leading-relaxed">
-                Isolates your three nearest due tickets automatically. Focuses attention and prevents deliverable slippage.
-              </p>
-            </div>
-            <div className="border border-brand-primary/10 bg-white p-4 rounded-xl">
-              <h4 className="text-xs font-bold text-brand-primary uppercase mb-1">Task Breakdown Metrics</h4>
-              <p className="text-xs text-text-light leading-relaxed">
-                Pushes a layout division mapping approvals versus design files, aiding personal bandwidth scheduling of team resources.
-              </p>
-            </div>
-            <div className="border border-brand-primary/10 bg-white p-4 rounded-xl">
-              <h4 className="text-xs font-bold text-brand-primary uppercase mb-1">Workload Snapshot</h4>
-              <p className="text-xs text-text-light leading-relaxed">
-                Keeps your currently assigned file quotas visual. Prevents bottleneck creation in active production periods.
-              </p>
+            <div className="border border-blue-200 bg-blue-50/30 rounded-xl p-3">
+              <h5 className="text-xs font-bold text-blue-700">Type 2: Service Requests</h5>
+              <p className="text-xs text-text-light mt-1"><strong>You Create &rarr; You Deliver the Final Product.</strong> The requestor needs YOU to create something from scratch. You design, edit, build, or produce the asset.</p>
             </div>
           </div>
         </div>
@@ -392,6 +394,12 @@ export default function UnitGuide() {
         </div>
 
         <div className="prose text-sm text-text-dark space-y-3 animate-fadeIn">
+          <p>
+            Your work involves two distinct types of tasks &mdash; Approval and Service &mdash; each with different workflows and action buttons.
+          </p>
+          <p>
+            <strong>Key Difference:</strong> <em>Approval Requests = you review their work. Service Requests = you create and deliver.</em>
+          </p>
           <p>
             The interface separates workloads into three standard streams using local toggles. This prevents visual clutter:
           </p>
@@ -442,26 +450,34 @@ export default function UnitGuide() {
 
         <div className="prose text-sm text-text-dark space-y-3">
           <p>
-            When managing design materials for verification, complete the following validation steps:
+            <strong>You Review &mdash; They Already Created It.</strong> The requestor created their own content and provided a link. Your job is to review and validate whether it meets institutional standards.
           </p>
 
-          <div className="space-y-3">
-            {[
-              { s: "Step 1", t: "Set Flag to In Progress", d: "Click 'Set In Progress' when beginning brand verification. This logs current handler timestamps in S-CORE logs." },
-              { s: "Step 2", t: "Assess Layout Margins", d: "Open attachments and verify logo layouts, wordings, and font selections against DLSU-D design principles." },
-              { s: "Step 3", t: "Commit Final Action", d: "Decide whether to Approve (issue digital certification stamps), Reject (with a brief block reason), or select For Revision for updates." },
-              { s: "Step 4", t: "Resolve Revision Details", d: "If marking 'For Revision', type the specific details in the comments. This unlocks the user's re-upload slot instantly." }
-            ].map((step, id) => (
-              <div key={id} className="flex gap-4 p-3 bg-white border border-brand-primary/10 rounded-xl">
-                <span className="text-xs bg-brand-primary/10 text-brand-primary px-2.5 py-1 rounded-lg font-bold font-mono h-fit shrink-0">
-                  {step.s}
-                </span>
-                <div>
-                  <h5 className="text-xs font-bold text-brand-dark mb-0.5">{step.t}</h5>
-                  <p className="text-xs text-text-light leading-relaxed">{step.d}</p>
-                </div>
-              </div>
-            ))}
+          <div className="bg-brand-light/30 border-l-4 border-brand-primary rounded-r-xl p-3 text-xs">
+            <p className="font-bold text-brand-dark">What This Means:</p>
+            <ul className="text-text-light space-y-0.5 list-disc pl-4 mt-1">
+              <li>The requestor created their own content and provided a link to it</li>
+              <li>You check if their work meets standards</li>
+              <li>You are NOT creating anything &mdash; only reviewing</li>
+            </ul>
+          </div>
+
+          <h4 className="text-xs font-bold text-brand-primary uppercase tracking-wider">Your Action Buttons</h4>
+          <ul className="text-xs text-text-light space-y-1 list-disc pl-5">
+            <li><strong>Approve</strong> &mdash; Use if submission is correct and final. Provide final remarks &rarr; Sets status to &quot;Approved&quot; (this is the only final status; there is no reject option once a request reaches your unit)</li>
+            <li><strong>For Revision</strong> &mdash; Use if errors exist &rarr; Explain what needs fixing in the Conversation tab. When the requestor resubmits, the status becomes &quot;For Checking&quot; for you to review again. This can repeat as many times as needed.</li>
+            <li><strong>Revoke Approval</strong> &mdash; If you approved by mistake, you can revoke it &mdash; this sends the status back to &quot;For Revision&quot; so it can be corrected.</li>
+          </ul>
+
+          <div className="bg-brand-light/30 border border-brand-accent/20 rounded-xl p-4">
+            <h5 className="text-xs font-bold text-brand-dark uppercase tracking-wider mb-2">Approval Request Lifecycle</h5>
+            <ul className="text-xs text-text-light space-y-1 list-disc pl-5">
+              <li><strong>Queued</strong> &mdash; A new task has been assigned to your unit by an Admin. It is waiting for you to review.</li>
+              <li><strong>For Revision</strong> &mdash; Your action. You reviewed and found issues &mdash; explain what needs fixing in the Conversation tab.</li>
+              <li><strong>For Checking</strong> &mdash; The requestor resubmitted their revision. Review it again.</li>
+              <li>Steps 2 and 3 repeat &mdash; the task keeps moving between For Revision and For Checking &mdash; until you are satisfied.</li>
+              <li><strong>Approved</strong> &mdash; Your action. Final status. Provide final remarks to approve. (You can use &quot;Revoke Approval&quot; afterward if you approved by mistake, which sends it back to &quot;For Revision&quot;.)</li>
+            </ul>
           </div>
         </div>
 
@@ -481,26 +497,35 @@ export default function UnitGuide() {
 
         <div className="prose text-sm text-text-dark space-y-3">
           <p>
-            When completing assigned creative design, photo capturing, or marketing scripts assignments, proceed through this pipeline:
+            <strong>You Create &mdash; You Deliver the Final Product.</strong> The requestor needs YOU to create something from scratch. You design, edit, build, or produce the asset.
           </p>
 
-          <div className="space-y-3">
-            {[
-              { s: "Step 1", t: "Start Action", d: "Open the task layout, review the client description, and select the Set In Progress option." },
-              { s: "Step 2", t: "Production Phase", d: "Produce graphics, capture physical coverages, or write media blurbs based on guidelines." },
-              { s: "Step 3", t: "Upload Vector Assets", d: "Double-click the deliverables box, reference the file name, and transmit final formats." },
-              { s: "Step 4", t: "Complete Ticket", d: "S-CORE notifies the Requestor of completion, logs audit timestamps, and closes the ticket." }
-            ].map((step, id) => (
-              <div key={id} className="flex gap-4 p-3 bg-white border border-brand-primary/10 rounded-xl">
-                <span className="text-xs bg-brand-primary/10 text-brand-primary px-2.5 py-1 rounded-lg font-bold font-mono h-fit shrink-0">
-                  {step.s}
-                </span>
-                <div>
-                  <h5 className="text-xs font-bold text-brand-dark mb-0.5">{step.t}</h5>
-                  <p className="text-xs text-text-light leading-relaxed">{step.d}</p>
-                </div>
-              </div>
-            ))}
+          <div className="bg-brand-light/30 border-l-4 border-brand-primary rounded-r-xl p-3 text-xs">
+            <p className="font-bold text-brand-dark">What This Means:</p>
+            <ul className="text-text-light space-y-0.5 list-disc pl-4 mt-1">
+              <li>The requestor needs YOU to create something from scratch</li>
+              <li>You design, edit, build, or produce the asset</li>
+              <li>You ARE the creator &mdash; you deliver the final work</li>
+            </ul>
+          </div>
+
+          <h4 className="text-xs font-bold text-brand-primary uppercase tracking-wider">Your Action Buttons</h4>
+          <ul className="text-xs text-text-light space-y-1 list-disc pl-5">
+            <li><strong>Reject</strong> &mdash; Available only before you start (status &quot;Queued&quot;). Requires a reason &rarr; Sets status to &quot;Rejected&quot; (final)</li>
+            <li><strong>Start</strong> / <strong>Acknowledge</strong> &mdash; Begin working &rarr; Sets status to &quot;In Progress&quot; (visible to both you and the requestor)</li>
+            <li><strong>Submit Deliverable</strong> &mdash; Paste link(s) to your finished work, plus notes &rarr; Sets status to &quot;For Checking&quot; so the requestor can review it</li>
+            <li><strong>Mark Final Complete</strong> &mdash; Once the requestor reviews and approves the deliverable (status becomes &quot;Approved&quot;), provide final remarks here &rarr; Sets status to &quot;Completed&quot; &mdash; this is the true final status</li>
+          </ul>
+
+          <div className="bg-brand-light/30 border border-brand-accent/20 rounded-xl p-4">
+            <h5 className="text-xs font-bold text-brand-dark uppercase tracking-wider mb-2">Service Request Lifecycle</h5>
+            <ul className="text-xs text-text-light space-y-1 list-disc pl-5">
+              <li><strong>Queued</strong> &mdash; A new task has been assigned to your unit. While still Queued, you may Reject it with a reason if you cannot fulfill it.</li>
+              <li><strong>In Progress</strong> &mdash; Your action. Acknowledge/start the task. This notifies the requestor that you are working on it.</li>
+              <li><strong>For Checking</strong> &mdash; Your action. Submit your deliverable link(s) and notes for the requestor to review.</li>
+              <li>The requestor then either Approves it, or sends it back as <strong>For Revision</strong> &mdash; in which case you submit a new deliverable link and it returns to &quot;For Checking&quot;. <strong>Limit: 2 revisions max.</strong> The unit may grant additional revisions at their discretion via the Conversation tab.</li>
+              <li><strong>Completed</strong> &mdash; Your action. Once the requestor has approved, provide final remarks to mark it Completed &mdash; this is the true final status.</li>
+            </ul>
           </div>
         </div>
 

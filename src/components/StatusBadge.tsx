@@ -2,6 +2,7 @@ import React from "react";
 
 export type ProjectStatus = 
   | "Pending" 
+  | "Queued"
   | "In Progress" 
   | "Approved" 
   | "For Revision" 
@@ -16,6 +17,9 @@ export default function StatusBadge({ status }: StatusBadgeProps) {
   let bgStyles = "";
   
   switch (status) {
+    case "Queued":
+      bgStyles = "bg-[#6366f1]/10 text-[#6366f1] border border-[#6366f1]/20";
+      break;
     case "Pending":
       bgStyles = "bg-[#f59e0b]/10 text-[#f59e0b] border border-[#f59e0b]/20";
       break;

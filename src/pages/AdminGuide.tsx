@@ -6,7 +6,6 @@ import {
   Sliders, Search, ShieldCheck, Mail, Users, FileSpreadsheet, 
   Settings, Megaphone, BarChart3, Clock, AlertTriangle, PlusCircle, CheckCircle, ArrowDownToLine 
 } from "lucide-react";
-import SuperAdminGuide from "./SuperAdminGuide";
 
 interface AdminRequest {
   id: string;
@@ -534,213 +533,289 @@ export default function AdminGuide() {
           Administrator <span className="gold-gradient">Operations Desk</span>
         </h1>
         <p className="text-sm text-text-light">
-          An interactive walkthrough designed for De La Salle University-Dasmariñas&#39; Strategic Communications Directors and assigned Office Managers.
+          Welcome to the S-CORE Admin panel. As an Admin (Director or Secretary), you have full oversight of the platform: you configure the system, oversee every request across all units, manage user accounts, publish announcements, and control the public-facing website content. This guide covers everything available to you.
         </p>
       </div>
 
-      {/* --- Section 1: Dashboard Overviews --- */}
+      {/* --- Section 1: Getting Started & Your Dashboard --- */}
       <section id="admin-dashboard-guide" className="scroll-mt-20 space-y-6">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-brand-primary text-white flex items-center justify-center font-sans font-bold text-lg shadow-sm">
             1
           </div>
           <h2 className="text-xl font-serif font-bold text-brand-primary">
-            Admin Dashboard Summary
+            Getting Started & Your Dashboard
           </h2>
         </div>
 
         <div className="prose text-sm text-text-dark space-y-3">
           <p>
-            The administrative home dashboard centers multi-office workload trackers, recent system-wide actions logs, announcement configurations panels, and easy-access action controls:
+            Your dashboard (Dashboard in the sidebar) gives you an at-a-glance view of the whole system:
           </p>
           <ul className="list-disc pl-5 space-y-1 text-xs text-text-light font-sans">
-            <li>Summary statistics cards displaying active, overdue and completed ticket indices.</li>
-            <li>Comprehensive system announcements creator and role filter mechanisms.</li>
-            <li>Download links to generate on-demand, filtered reports sheets (.csv/PDF).</li>
+            <li>Action cards for quick navigation to All Requests, Approvals, Services, and Users</li>
+            <li>A calendar of upcoming deadlines across all units</li>
+            <li>KPI counters: Pending Assignment, Awaiting Approval, In Revision, Unassigned Tasks</li>
+            <li>Charts: Current Request Status, Active Tasks by Unit, Request Volume Over Time</li>
+            <li>Tables: Very Recent Requests, Urgent &amp; Overdue Tasks, Top Requests by Revision Count</li>
           </ul>
         </div>
 
-        <ManualImage caption="Admin Dashboard" mockUI={mockAdminControlCenter} />
+        <ManualImage caption="Admin Dashboard Overview" mockUI={mockAdminControlCenter} />
       </section>
 
-      {/* --- Section 2: Ledger tracking All requests --- */}
-      <section id="admin-track-requests" className="scroll-mt-20 space-y-6">
+      {/* --- Section 2: Configuration --- */}
+      <section id="admin-configurations" className="scroll-mt-20 space-y-6">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-brand-primary text-white flex items-center justify-center font-sans font-bold text-lg shadow-sm">
             2
           </div>
           <h2 className="text-xl font-serif font-bold text-brand-primary">
-            Direct Tracking Ledger
+            Configuration
           </h2>
         </div>
 
         <div className="prose text-sm text-text-dark space-y-3">
           <p>
-            Administrative operators track, filter, and audit all submitted files inside single interfaces. Toggle directories dynamically:
+            The Configuration page is the control center for the entire platform, organised into six tabs across the top of the page. Any changes you make are tracked &mdash; a sticky bar appears at the bottom showing "You have unsaved changes" when something is modified. Click <strong>Save Changes</strong> to persist all settings at once.
           </p>
 
-          <ol className="list-decimal pl-5 space-y-2 text-xs text-text-light font-sans">
-            <li><strong>All Submissions:</strong> Comprehensive logs of both Approval and Technical Service requests.</li>
-            <li><strong>Approvals Ledger:</strong> Exclusively isolates verification documents submitted for SCO validation stamps.</li>
-            <li><strong>Services Ledger:</strong> Identifies active technical creative jobs routed across team squads.</li>
-          </ol>
+          <h4 className="text-xs font-bold text-brand-primary uppercase tracking-wider">1. System Configuration</h4>
+          <p className="text-xs text-text-light">
+            Define master lists used as dropdown options everywhere: Organizations, Offices/Departments, Units &amp; Request Types, and Request Statuses. Below these, configure User Roles &amp; Permissions, Announcement Priority Levels, and Announcement Types. Further down you will find site title, timezone, notification preferences, file upload limits, and Automated Workflow &amp; Archiving day-limit settings.
+          </p>
+
+          <h4 className="text-xs font-bold text-brand-primary uppercase tracking-wider">2. Homepage Configuration</h4>
+          <p className="text-xs text-text-light">
+            Changes are visible to every visitor of the public website. Each collapsible section corresponds to a part of the homepage: Hero, SCO Pledge, About, Services, Team, Contact, Social Media links, and Footer.
+          </p>
+
+          <h4 className="text-xs font-bold text-brand-primary uppercase tracking-wider">3. About S-CORE Page Configuration</h4>
+          <p className="text-xs text-text-light">
+            Edit the public /about-s-core page: Header, System Overview, Platform Features, and Call-to-Action buttons &mdash; same collapsible layout.
+          </p>
+
+          <h4 className="text-xs font-bold text-brand-primary uppercase tracking-wider">4. Archive Manager</h4>
+          <p className="text-xs text-text-light">
+            Configure auto-archive day-limits, trigger immediate archiving, review pending restoration requests, and browse archived records.
+          </p>
+
+          <h4 className="text-xs font-bold text-brand-primary uppercase tracking-wider">5. Q&amp;A Chatbot</h4>
+          <p className="text-xs text-text-light">
+            Manage the chatbot visible on every page. Toggle visibility per page, edit greeting message and manual-reference links, and configure role-based Q&amp;A content for requestors, unit members, and admins.
+          </p>
+
+          <h4 className="text-xs font-bold text-brand-primary uppercase tracking-wider">6. Maintenance</h4>
+          <p className="text-xs text-text-light">
+            Control system downtime. Set <strong>Schedule Type</strong> to Instant (activates immediately), Scheduled (set start/end date-time), or Disabled. Choose <strong>Target Audience</strong>: All Users, Unit Members Only, or Requestors Only. Write a custom message &mdash; any email address automatically becomes a clickable mailto link. Set a <strong>Contact Email</strong> for the maintenance notice page. Admins always bypass maintenance.
+          </p>
         </div>
 
-        <ManualImage caption="All Requests Overview" mockUI={mockAdminControlCenter} />
+        <ManualImage caption="Configuration Page — System Tab" mockUI={mockAdminControlCenter} />
       </section>
 
-      {/* --- Section 3: Approvals Assignments --- */}
-      <section id="admin-approvals-assign" className="scroll-mt-20 space-y-6">
+      {/* --- Section 3: Archiving --- */}
+      <section id="admin-archiving" className="scroll-mt-20 space-y-6">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-brand-primary text-white flex items-center justify-center font-sans font-bold text-lg shadow-sm">
             3
           </div>
           <h2 className="text-xl font-serif font-bold text-brand-primary">
-            Routing Approvals Contracts
-          </h2>
-        </div>
-
-        <div className="prose text-sm text-text-dark space-y-2">
-          <p>
-            Administrators hold routing permissions. To assign, select any pending request, review the files submitted, specify the handling Unit Team member, and modify status targets as required.
-          </p>
-        </div>
-
-        <ManualImage caption="Approval Request Details" mockUI={mockAdminControlCenter} />
-      </section>
-
-      {/* --- Section 4: Services Assignments --- */}
-      <section id="admin-services-assign" className="scroll-mt-20 space-y-6">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-brand-primary text-white flex items-center justify-center font-sans font-bold text-lg shadow-sm">
-            4
-          </div>
-          <h2 className="text-xl font-serif font-bold text-brand-primary">
-            Routing Technical Services
-          </h2>
-        </div>
-
-        <div className="prose text-sm text-text-dark space-y-2">
-          <p>
-            Determine which unit team possesses the necessary bandwidth. Select the <strong>Service Request</strong>, assign the graphic designer or photographer, and review conversations in the discussions board to verify progress.
-          </p>
-        </div>
-
-        <ManualImage caption="Service Request Details" mockUI={mockAdminControlCenter} />
-      </section>
-
-      {/* --- Section 5: User management --- */}
-      <section id="admin-user-management" className="scroll-mt-20 space-y-6">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-brand-primary text-white flex items-center justify-center font-sans font-bold text-lg shadow-sm">
-            5
-          </div>
-          <h2 className="text-xl font-serif font-bold text-brand-primary">
-            User Account Auditing
+            Archiving
           </h2>
         </div>
 
         <div className="prose text-sm text-text-dark space-y-3">
           <p>
-            Administrators manage logins. Open the Users Registry, filter users by status tags, and toggle their account states between <strong>Active</strong>, <strong>Pending Approval</strong>, or <strong>Inactive</strong> to manage institutional workspace boundaries.
+            Archiving is managed from Configuration → Archive Manager. A background job runs nightly and archives requests automatically &mdash; Completed/Approved requests past their day-limit, and stale For Revision requests with no activity.
+          </p>
+          <ul className="list-disc pl-5 space-y-1 text-xs text-text-light font-sans">
+            <li><strong>Day-limit settings:</strong> Configure per-status wait times before auto-archiving (defaults: 30 days Completed, 30 Approved, 14 For Revision).</li>
+            <li><strong>Run Archiving Now:</strong> Trigger the same logic immediately instead of waiting for the nightly job.</li>
+            <li><strong>Pending Restoration Requests:</strong> Requestors and units can ask for an archived request to be restored &mdash; review and approve/dismiss.</li>
+            <li><strong>Browse Archived Records:</strong> Search, filter, restore, or permanently delete archived requests.</li>
+          </ul>
+          <InfoBox title="User Restoration Setting">
+            Both requestors and units can ask for an archived request to be reactivated &mdash; the "Allow Users to Restore Their Own Archived Requests" setting governs this.
+          </InfoBox>
+        </div>
+
+        <ManualImage caption="Archive Manager" mockUI={mockAdminControlCenter} />
+      </section>
+
+      {/* --- Section 4: Monitoring All Requests --- */}
+      <section id="admin-track-requests" className="scroll-mt-20 space-y-6">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-full bg-brand-primary text-white flex items-center justify-center font-sans font-bold text-lg shadow-sm">
+            4
+          </div>
+          <h2 className="text-xl font-serif font-bold text-brand-primary">
+            Monitoring All Requests
+          </h2>
+        </div>
+
+        <div className="prose text-sm text-text-dark space-y-3">
+          <p>
+            Three pages give you full visibility into requests across every unit:
+          </p>
+          <ul className="list-disc pl-5 space-y-1 text-xs text-text-light font-sans">
+            <li><strong>Track All Requests:</strong> Every request, both types, in one table.</li>
+            <li><strong>Manage Approvals:</strong> Only Request Approvals.</li>
+            <li><strong>Manage Services:</strong> Only Service Requests.</li>
+          </ul>
+          <p className="text-xs text-text-light">
+            On any of these pages you can filter by Request ID, requestor name, status, assigned unit, organization, office/department, and date range. Open a request's details, edit it, or update its status or deadline directly. Click <strong>Open Request Discussion</strong> to join the same Conversation thread used by the requestor and the assigned unit. View a <strong>Deleted Requests</strong> list, and restore or permanently delete from there.
           </p>
         </div>
 
-        <ManualImage caption="User Management Page" mockUI={mockAdminControlCenter} />
+        <ManualImage caption="Track All Requests — Submissions Ledger" mockUI={mockAdminControlCenter} />
       </section>
 
-      {/* --- Section 6: Analytics --- */}
-      <section id="admin-analytics" className="scroll-mt-20 space-y-6">
+      {/* --- Section 5: Managing Requests as Admin --- */}
+      <section id="admin-manage-requests" className="scroll-mt-20 space-y-6">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-full bg-brand-primary text-white flex items-center justify-center font-sans font-bold text-lg shadow-sm">
+            5
+          </div>
+          <h2 className="text-xl font-serif font-bold text-brand-primary">
+            Managing Requests as Admin
+          </h2>
+        </div>
+
+        <div className="prose text-sm text-text-dark space-y-3">
+          <h4 className="text-xs font-bold text-brand-primary uppercase tracking-wider">Creating Requests On Behalf of Users</h4>
+          <p className="text-xs text-text-light">
+            From the Manage Approvals and Manage Services pages, click the <strong>+ Create</strong> button. At the top you see a "Create Request For User" field: leave it empty to create under your own name, or search and select a user to create on their behalf. The requestor receives a notification and it appears in their personal dashboard.
+          </p>
+
+          <h4 className="text-xs font-bold text-brand-primary uppercase tracking-wider">Assigning Requests to a Unit</h4>
+          <p className="text-xs text-text-light">
+            Below request type selection, the "Assign to Unit" dropdown gives <strong>Auto-assign</strong> (system picks the recommended unit) or <strong>Choose a specific unit</strong> to override. You can also set a deadline while creating service requests.
+          </p>
+
+          <h4 className="text-xs font-bold text-brand-primary uppercase tracking-wider">Updating Status, Reassigning, and Editing</h4>
+          <p className="text-xs text-text-light">
+            From any requests page, click a request row to open its detail view. There you can update request status (Queued, In Progress, Approved, Rejected, Completed, For Revision, or Archived), reassign to a different unit, edit deadline, modify title/description/organization, join the discussion, or delete/restore. Whenever you update a request, the requestor and assigned unit receive automatic notifications.
+          </p>
+
+          <h4 className="text-xs font-bold text-brand-primary uppercase tracking-wider">Managing Request Discussions</h4>
+          <p className="text-xs text-text-light">
+            Every request has a built-in Conversation thread visible to the requestor, the assigned unit, and all admins. Use it to clarify requirements, provide guidance to the unit, or intervene when there is a dispute or delay. Since conversations are visible to the requestor, prefer private messages or settings changes for sensitive internal coordination.
+          </p>
+        </div>
+
+        <ManualImage caption="Request Detail — Assign Unit & Status" mockUI={mockAdminControlCenter} />
+      </section>
+
+      {/* --- Section 6: Generating Reports --- */}
+      <section id="admin-reports" className="scroll-mt-20 space-y-6">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-brand-primary text-white flex items-center justify-center font-sans font-bold text-lg shadow-sm">
             6
           </div>
           <h2 className="text-xl font-serif font-bold text-brand-primary">
-            Comprehensive System Analytics
+            Generating Reports
           </h2>
         </div>
 
-        <p className="text-sm text-text-dark">
-          Track institution-wide communication trends in real-time. Look over visual analytics parameters representing monthly volumes, status splits, request category ratios, user enrollment patterns, and design turnaround times.
-        </p>
+        <div className="prose text-sm text-text-dark space-y-3">
+          <p>
+            Go to <strong>Generate Reports</strong> in the sidebar. Set your filters: a date-range preset or custom range, request type (all/approval/service), one or more units, one or more statuses, and a sort order.
+          </p>
+          <ul className="list-disc pl-5 space-y-1 text-xs text-text-light font-sans">
+            <li>Generate a preview, customize the export (file name, report title, colors, paper size, orientation).</li>
+            <li>Download as PDF or Excel.</li>
+            <li>Every report you generate is saved to <strong>Generated Reports History</strong>, where you can view, edit, duplicate, delete, restore, or re-download it later.</li>
+          </ul>
+        </div>
 
-        <ManualImage caption="Analytics Page" mockUI={mockAdminControlCenter} />
+        <ManualImage caption="Report Generation Interface" mockUI={mockAdminControlCenter} />
       </section>
 
-      {/* --- Section 7: Announcements --- */}
-      <section id="admin-announcements" className="scroll-mt-20 space-y-6">
+      {/* --- Section 7: Analytics --- */}
+      <section id="admin-analytics" className="scroll-mt-20 space-y-6">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-brand-primary text-white flex items-center justify-center font-sans font-bold text-lg shadow-sm">
             7
           </div>
           <h2 className="text-xl font-serif font-bold text-brand-primary">
-            Announcements & Audience Filters
+            Analytics
           </h2>
         </div>
 
-        <p className="text-sm text-text-dark">
-          Announcements propagate instantly across active user gateways inside S-CORE. Apply specific audience visibilities (Global Feed, Requestor View, or Unit Staff) to deliver important brand guides to the right users.
-        </p>
+        <div className="prose text-sm text-text-dark space-y-3">
+          <p>
+            The Analytics page gives deeper performance insight, filterable by date range, unit, request type, and status:
+          </p>
+          <ul className="list-disc pl-5 space-y-1 text-xs text-text-light font-sans">
+            <li>At-a-glance KPIs</li>
+            <li>Request Status and Request Type distribution</li>
+            <li>Top Requestors and Request Volume Over Time</li>
+            <li>Active Workload, Average Turnaround Time, Total Workload, and Average Response Time &mdash; all broken down by unit</li>
+          </ul>
+          <p className="text-xs text-text-light">
+            Analytics data can also be exported to PDF, with its own history of past exports.
+          </p>
+        </div>
 
-        <ManualImage caption="Announcement Creation Interface" mockUI={mockAdminControlCenter} />
+        <ManualImage caption="Analytics Dashboard" mockUI={mockAdminControlCenter} />
       </section>
 
-      {/* --- Section 8: Report generation --- */}
-      <section id="admin-reports" className="scroll-mt-20 space-y-6">
+      {/* --- Section 8: User Management --- */}
+      <section id="admin-user-management" className="scroll-mt-20 space-y-6">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-brand-primary text-white flex items-center justify-center font-sans font-bold text-lg shadow-sm">
             8
           </div>
           <h2 className="text-xl font-serif font-bold text-brand-primary">
-            On-Demand Report Compilation
+            User Management
           </h2>
         </div>
 
-        <p className="text-sm text-text-dark">
-          Compile operational statistics instantly for executive committee audits. Select your target area (Requests, Users, or Staff performance), choose your data blueprint (.csv spreadsheet / document PDF), and compile dynamic logs on demand.
-        </p>
+        <div className="prose text-sm text-text-dark space-y-3">
+          <p>
+            The User Accounts page manages every account in the system, split into All / Approved / Pending / Denied tabs.
+          </p>
+          <ul className="list-disc pl-5 space-y-1 text-xs text-text-light font-sans">
+            <li><strong>New registrations:</strong> Approve (grants default Requestor role), Deny (with a reason), or Reset back to pending.</li>
+            <li><strong>Change Role:</strong> Promote or change a user between Requestor, Unit, and Admin. When setting to Unit, you must also assign which unit team they belong to (e.g., Graphics, Multimedia).</li>
+            <li><strong>Create User Invitation:</strong> Generate a direct onboarding link to invite a new account without manual approval.</li>
+            <li><strong>Deleted Users:</strong> Restore or permanently delete removed accounts.</li>
+          </ul>
 
-        <ManualImage caption="Report Generation Page" mockUI={mockAdminControlCenter} />
+          <WarningBox title="Role Elevation Restriction">
+            Student accounts can only be elevated to Unit Staff, never to Administrator level. This protects confidential system configurations from unauthorized access.
+          </WarningBox>
+        </div>
+
+        <ManualImage caption="User Accounts Management" mockUI={mockAdminControlCenter} />
       </section>
 
-      {/* --- Section 9: Configurations --- */}
-      <section id="admin-configurations" className="scroll-mt-20 space-y-6">
+      {/* --- Section 9: Announcements --- */}
+      <section id="admin-announcements" className="scroll-mt-20 space-y-6">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-brand-primary text-white flex items-center justify-center font-sans font-bold text-lg shadow-sm">
             9
           </div>
           <h2 className="text-xl font-serif font-bold text-brand-primary">
-            Settings & System Configurations
+            Announcements
           </h2>
         </div>
 
-        <p className="text-sm text-text-dark">
-          Manage system-level requirements: adjust metadata parameters, specify maximum upload file size boundaries, establish archives cycles, and modify branding elements inside the portal homepage.
-        </p>
-
-        <ManualImage caption="Configuration Page" mockUI={mockAdminControlCenter} />
-      </section>
-
-      {/* --- Section 10: Notifications --- */}
-      <section id="admin-notifications" className="scroll-mt-20 space-y-6">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-brand-primary text-white flex items-center justify-center font-sans font-bold text-lg shadow-sm">
-            10
-          </div>
-          <h2 className="text-xl font-serif font-bold text-brand-primary">
-            Administrative Alert Routers
-          </h2>
+        <div className="prose text-sm text-text-dark space-y-3">
+          <p>
+            Go to <strong>Announcements</strong> to broadcast messages to your users:
+          </p>
+          <ul className="list-disc pl-5 space-y-1 text-xs text-text-light font-sans">
+            <li>Compose a title, rich-text message, priority level, and announcement type (configurable in System Configuration).</li>
+            <li>Choose recipients: All Users, By Organization, By Office/Department, or Specific Users.</li>
+            <li>Optionally set a future <strong>Schedule Send Date &amp; Time</strong> &mdash; scheduled announcements are sent automatically by a background job at the scheduled time.</li>
+            <li>Manage sent announcements: view, edit, delete, and restore from the Trash.</li>
+          </ul>
         </div>
 
-        <p className="text-sm text-text-dark">
-          Stay on top of system-wide changes. Built-in alerts inform you of new user account registrations requiring verification, newly logged request packages, and critical, approaching deadlines.
-        </p>
+        <ManualImage caption="Announcement Interface" mockUI={mockAdminControlCenter} />
       </section>
-
-      {/* Embedded Super Administrator Manual */}
-      <div className="border-t border-brand-primary/10 pt-12 mt-12" id="super-admin-desk-merged font-sans">
-        <SuperAdminGuide />
-      </div>
     </div>
   );
 }

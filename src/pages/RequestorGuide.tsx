@@ -72,9 +72,9 @@ export default function RequestorGuide() {
       type: `${activeCategory} Request: ${finalType}`,
       category: activeCategory,
       deadline,
-      status: "Pending",
+      status: "Queued",
       messages: [
-        { sender: "System", text: "Request submitted and set to Pending. Awaiting Admin assignment.", time: "Just now" }
+        { sender: "System", text: "Request submitted and set to Queued. Awaiting unit review.", time: "Just now" }
       ]
     };
 
@@ -103,10 +103,10 @@ export default function RequestorGuide() {
           let nextStatus = req.status;
 
           if (req.status === "For Revision" && messageText.toLowerCase().includes("upload")) {
-            nextStatus = "Pending";
+            nextStatus = "Queued";
             autoResponse = {
               sender: "System",
-              text: "System registered file modifications! Request status returned to Pending check.",
+              text: "System registered your revision! Request status returned to Queued check.",
               time: "Just now"
             };
           } else {
@@ -148,7 +148,7 @@ export default function RequestorGuide() {
       {/* Stats Summary Panel */}
       <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 mb-4">
         {[
-          { label: "Pending", val: "1", color: "border-[#f59e0b]/30 bg-[#f59e0b]/5 text-[#f59e0b]" },
+          { label: "Queued", val: "1", color: "border-[#f59e0b]/30 bg-[#f59e0b]/5 text-[#f59e0b]" },
           { label: "In Prog.", val: "1", color: "border-[#3b82f6]/30 bg-[#3b82f6]/5 text-[#3b82f6]" },
           { label: "Revision", val: "1", color: "border-[#ea580c]/30 bg-[#ea580c]/5 text-[#ea580c]" },
           { label: "Approved", val: "4", color: "border-[#16a34a]/30 bg-[#16a34a]/5 text-[#16a34a]" },
@@ -306,13 +306,15 @@ export default function RequestorGuide() {
 
         <div>
           <label className="block text-[10px] font-bold text-brand-dark uppercase mb-1 flex items-center justify-between">
-            <span>File Attachments (PDF/Zip/PNG)</span>
-            <span className="text-[9px] text-text-light font-normal text-right">Max size: 40MB</span>
+            <span>Attach a File Link</span>
+            <span className="text-[9px] text-text-light font-normal">Google Drive, Dropbox, etc.</span>
           </label>
-          <div className="border border-dashed border-brand-accent/40 rounded-lg p-2 text-center text-[10px] text-text-light bg-brand-light/10">
-            <Paperclip size={14} className="inline mr-1 text-text-light" />
-            Drag and drop source files or select from local storage
-          </div>
+          <input 
+            type="text"
+            placeholder="Paste a shareable link to your file..."
+            className="w-full px-2.5 py-1.5 border border-gray-200 rounded-lg text-xs"
+            id="input-file-link"
+          />
         </div>
 
         <button 
@@ -320,7 +322,7 @@ export default function RequestorGuide() {
           className="w-full bg-brand-primary hover:bg-brand-secondary text-white text-xs font-bold py-2 rounded-lg"
           id="btn-req-sim-submit"
         >
-          Submit as Pending Request
+          Submit Request
         </button>
       </form>
 
@@ -391,7 +393,7 @@ export default function RequestorGuide() {
                 My Requests Summary
               </h4>
               <p className="text-xs text-text-light leading-relaxed">
-                Scan your global statistics immediately. Track total submissions organized by real-time status flags: <StatusBadge status="Pending" />, <StatusBadge status="In Progress" />, <StatusBadge status="Completed" />.
+                Scan your global statistics immediately. Track total submissions organized by real-time status flags: <StatusBadge status="Queued" />, <StatusBadge status="In Progress" />, <StatusBadge status="Completed" />.
               </p>
             </div>
           </div>
@@ -427,7 +429,7 @@ export default function RequestorGuide() {
               { t: "Event Title & Scope", d: "The clear title or theme matching official university calendars (e.g., DLSU-D Tech Week 2026)." },
               { t: "Description / Creative Objective", d: "A summary explaining your specific targeted marketing outcomes, themes and required dimensions." },
               { t: "Requested Deadline Field", d: "Institutional regulations demand a strict 7-day lead boundary. Ensure selected dates respect standard processing times." },
-              { t: "Draft File Attachments", d: "Upload editable PDF vectors or structural images (under 40 Megabytes per file attachment)." }
+              { t: "External File Link", d: "Provide a shareable link (Google Drive, Dropbox, etc.) to your source file instead of uploading directly." }
             ].map((item, idx) => (
               <div key={idx} className="flex gap-2">
                 <div className="mt-0.5 shrink-0 text-brand-accent">
@@ -442,8 +444,15 @@ export default function RequestorGuide() {
           </div>
 
           <p className="text-xs text-text-light leading-relaxed">
-            Upon submitting, your request takes a status of <StatusBadge status="Pending" />. If the strategic unit flags branding errors, they will select <StatusBadge status="For Revision" />. Re-upload modified files inside the same task card. This action unlocks submission and tags the handling officers immediately inside discussions!
+            Upon submitting, your request takes a status of <StatusBadge status="Queued" />. The approval lifecycle follows this path:
           </p>
+          <ul className="text-xs text-text-light space-y-1 list-disc pl-5">
+            <li><strong>Queued</strong> — Your request has just been submitted and is waiting for the unit to review it.</li>
+            <li><strong>For Revision</strong> — ACTION REQUIRED. The unit reviewed and needs changes. Check the Conversation tab for feedback, add a new link, and resubmit.</li>
+            <li><strong>For Checking</strong> — You resubmitted your revision. The unit is checking it again.</li>
+            <li>Steps 2 and 3 repeat — your request moves between For Revision and For Checking — until the unit is satisfied.</li>
+            <li><strong>Approved</strong> — Final status. Your file is officially approved and the task is complete.</li>
+          </ul>
         </div>
 
         <ManualImage caption="Request for Approval Form" mockUI={mockSubmitForm} />
@@ -462,11 +471,16 @@ export default function RequestorGuide() {
 
         <div className="prose text-sm text-text-dark space-y-3">
           <p>
-            When seeking active technical designs, media coverages, or social writing from the StratComms officers, select <strong>Submit a Service Request</strong>.
+            When seeking active technical designs, media coverage, or social writing from the StratComms officers, select <strong>Submit a Service Request</strong>. The service lifecycle follows this path:
           </p>
-          <p className="text-xs text-text-light leading-relaxed">
-            Fill out the project scope, event duration, target location, and reference files (such as background styles or typography guidelines). The assigned Unit Staff will update progress markers directly inside your dashboard.
-          </p>
+          <ul className="text-xs text-text-light space-y-1 list-disc pl-5">
+            <li><strong>Queued</strong> — Your request is submitted and waiting for a unit to pick it up.</li>
+            <li><strong>In Progress</strong> — A unit has started working on your deliverable. Both parties see this status.</li>
+            <li><strong>For Checking</strong> — ACTION REQUIRED. The unit sent a finished deliverable. Review the task details.</li>
+            <li>From here, you either <strong>Approve</strong> it (task closes as Approved) or <strong>Request a Revision</strong> (status becomes For Revision, goes back to the unit).</li>
+            <li>Steps 2 through 4 repeat until you approve. <strong>Limit: 2 revisions only.</strong> If you need more, ask through the chat inside your request.</li>
+            <li><strong>Approved</strong> — Final status. Deliverable is officially approved and the task is complete.</li>
+          </ul>
         </div>
 
         <ManualImage caption="Service Request Form" mockUI={mockSubmitForm} />
@@ -514,6 +528,11 @@ export default function RequestorGuide() {
             <span className="bg-gray-100 px-2.5 py-1 rounded-md border border-gray-200 font-mono flex items-center gap-1"><Search size={10} /> Target Keyword Search</span>
             <span className="bg-gray-100 px-2.5 py-1 rounded-md border border-gray-200 font-mono flex items-center gap-1"><Calendar size={10} /> Dynamic Date range filters</span>
             <span className="bg-gray-100 px-2.5 py-1 rounded-md border border-gray-200 font-mono flex items-center gap-1"><Tag size={10} /> Sort by Urgency rank</span>
+          </div>
+
+          <div className="bg-green-50 border-l-4 border-green-500 rounded-r-lg p-3 text-xs">
+            <strong className="text-green-800">Admin-Created Requests:</strong>
+            <span className="text-green-700"> Sometimes an admin may create a request on your behalf. Those rows appear with a <strong>green left border</strong> and <strong>light green background</strong> in the ledger table.</span>
           </div>
         </div>
 
@@ -572,7 +591,7 @@ export default function RequestorGuide() {
               {/* Hint alert */}
               {activeRequest.status === "For Revision" && (
                 <div className="bg-[#ea580c]/5 border border-[#ea580c]/10 rounded-md p-2 text-[10px] text-[#ea580c] mb-2 font-medium">
-                  💡 Type <em>&quot;upload&quot;</em> in your chat prompt below to simulate pushing revised drafts and returning status to Pending!
+                  💡 Type <em>&quot;upload&quot;</em> in your chat prompt below to simulate adding a new link and returning status to Queued!
                 </div>
               )}
 
@@ -580,7 +599,7 @@ export default function RequestorGuide() {
               <form onSubmit={handleSendMessage} className="flex gap-1.5">
                 <input 
                   type="text" 
-                  placeholder={activeRequest.status === "For Revision" ? 'Type "I will upload..." or "uploaded" to trigger revision...' : "Type your message to Unit Staff..."}
+                  placeholder={activeRequest.status === "For Revision" ? 'Type "I will upload..." or "uploaded" to simulate adding a link...' : "Type your message to Unit Staff..."}
                   value={messageText}
                   onChange={(e) => setMessageText(e.target.value)}
                   className="flex-1 px-3 py-1.5 border border-gray-200 rounded-lg text-xs"

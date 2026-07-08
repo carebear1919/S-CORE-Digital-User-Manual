@@ -9,7 +9,6 @@ import GettingStarted from "./pages/GettingStarted";
 import RequestorGuide from "./pages/RequestorGuide";
 import UnitGuide from "./pages/UnitGuide";
 import AdminGuide from "./pages/AdminGuide";
-import SuperAdminGuide from "./pages/SuperAdminGuide";
 
 interface SidebarGroup {
   category: string;
@@ -121,41 +120,32 @@ export default function App() {
       case "admin":
         return [
           {
-            category: "Homepage Overview",
+            category: "Getting Started",
             items: [
-              { id: "admin-dashboard-guide", label: "Administrative Homepage" },
-              { id: "admin-track-requests", label: "Track All Requests" }
+              { id: "admin-dashboard-guide", label: "Dashboard Overview" },
+              { id: "admin-configurations", label: "Configuration" },
+              { id: "admin-archiving", label: "Archiving" }
             ]
           },
           {
-            category: "Routing & Assignments",
+            category: "Requests & Monitoring",
             items: [
-              { id: "admin-approvals-assign", label: "Approval Requests Routing" },
-              { id: "admin-services-assign", label: "Service Requests Routing" }
+              { id: "admin-track-requests", label: "Monitoring All Requests" },
+              { id: "admin-manage-requests", label: "Managing Requests as Admin" }
             ]
           },
           {
-            category: "Governance Controls",
+            category: "Data & Reports",
             items: [
-              { id: "admin-user-management", label: "User Account Management" },
-              { id: "admin-analytics", label: "System Analytics" },
-              { id: "admin-announcements", label: "Global Announcements" }
+              { id: "admin-reports", label: "Generating Reports" },
+              { id: "admin-analytics", label: "Analytics" }
             ]
           },
           {
-            category: "Configuration Center",
+            category: "People & Announcements",
             items: [
-              { id: "admin-reports", label: "Report Generation" },
-              { id: "admin-configurations", label: "System Configurations" },
-              { id: "admin-notifications", label: "Admin Notification Settings" }
-            ]
-          },
-          {
-            category: "Super Admin Gateway",
-            items: [
-              { id: "super-responsibilities", label: "Core Responsibilities" },
-              { id: "super-create-users", label: "Create Invitation Codes" },
-              { id: "super-manage-roles", label: "Elevate & Manage Roles" }
+              { id: "admin-user-management", label: "User Management" },
+              { id: "admin-announcements", label: "Announcements" }
             ]
           }
         ];
@@ -302,17 +292,15 @@ export default function App() {
     { page: "unit", target: "processing-services", head: "Technical Services deliveries", snippet: "Attach final vector files and log complete state on tasks." },
     { page: "unit", target: "unit-comm-guidelines", head: "Strategic Comms response times", snippet: "Messages within 1 business day, initial reviews logged within 3 working frames." },
     { page: "unit", target: "unit-notifications", head: "Unit System Alerts alarms", snippet: "Real-time updates on assignments, deadline proximity alerts." },
-    { page: "admin", target: "admin-dashboard-guide", head: "Administrator Core summary indicators", snippet: "Check pending logs volume, recent activity logs, announcement panels." },
-    { page: "admin", target: "admin-track-requests", head: "Direct System Submissions tracking", snippet: "Search, filter by approvals tabs or users directory tables." },
-    { page: "admin", target: "admin-approvals-assign", head: "Routing branding validation", snippet: "Assign designated Unit specialists to analyze logo margins." },
-    { page: "admin", target: "admin-services-assign", head: "Allocating Creative technical designers", snippet: "Review creative requirements and route tickets to Maria or Juan." },
-    { page: "admin", target: "admin-user-management", head: "Users Account states directory", snippet: "Switch registrations between Active, Pending Approval or Inactive." },
-    { page: "admin", target: "admin-analytics", head: "Volume metrics & Performance charts", snippet: "Track peak request monthly trends and statuses distributions." },
-    { page: "admin", target: "admin-announcements", head: "Selective targeting Announcements", snippet: "Route guidelines directly to students, internal team or globally." },
-    { page: "admin", target: "admin-reports", head: "CSV/PDF administrative report compilers", snippet: "Select scope metrics, render exports, download database listings." },
-    { page: "admin", target: "super-responsibilities", head: "Super Admin segregations rules", snippet: "Manage IT systems configurations. Under no conditions can students become Administrators." },
-    { page: "admin", target: "super-create-users", head: "Creating AutoOnboarding Invitation codes", snippet: "Issue secure tokens to allow seamless registrations approvals." },
-    { page: "admin", target: "super-manage-roles", head: "Role Elevation directories", snippet: "Change user classes from requestor, unit staff or global admin configurations." }
+    { page: "admin", target: "admin-dashboard-guide", head: "Dashboard & Getting Started", snippet: "Overview of metrics, action cards, KPI counters, charts and tables." },
+    { page: "admin", target: "admin-configurations", head: "System Configuration", snippet: "Six-tab control center: system, homepage, about, archive, chatbot, maintenance." },
+    { page: "admin", target: "admin-archiving", head: "Archive Manager", snippet: "Auto-archiving, day-limits, restoration requests, browse archived records." },
+    { page: "admin", target: "admin-track-requests", head: "Monitoring All Requests", snippet: "Track All Requests, Manage Approvals, Manage Services with filters." },
+    { page: "admin", target: "admin-manage-requests", head: "Managing Requests as Admin", snippet: "Create on behalf, assign to unit, update status, discussions." },
+    { page: "admin", target: "admin-reports", head: "Generating Reports", snippet: "Filters, preview, PDF/Excel export, report history." },
+    { page: "admin", target: "admin-analytics", head: "Analytics KPIs & Charts", snippet: "Status distribution, request volume, turnaround time by unit." },
+    { page: "admin", target: "admin-user-management", head: "User Account Management", snippet: "Approve registrations, change roles, create invitations, restore deleted." },
+    { page: "admin", target: "admin-announcements", head: "System Announcements", snippet: "Compose, schedule, target recipients, manage sent announcements." }
   ];
 
   const searchResults = searchQuery.trim() === "" ? [] : searchDatabase.filter(item => 
